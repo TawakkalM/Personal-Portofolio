@@ -1,0 +1,512 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Robin | Full-Stack Web Developer &amp; UI Builder</title>
+<meta content="Personal portfolio of Robin, a full-stack web developer crafting simple, fast, and accessible digital products." name="description">
+<!-- Google Fonts: Inter (Sans), Bebas Neue / Barlow Condensed (Display), Caveat (Handwritten) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;family=Inter:wght@400;500;600;700;800&amp;family=Bebas+Neue&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS CDN with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surround: '#8f9298',
+            paper: '#FAF9F5',
+            'paper-line': '#E4E2DC',
+            ink: '#191715',
+            'ink-muted': '#5D5A53',
+            brandYellow: '#F4CE4E',
+            brandBlue: '#2D58CF',
+            brandOrange: '#EE6C4D',
+            brandMint: '#A9DDC9',
+            brandGreen: '#18966E',
+            brandPink: '#EC4E90',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Bebas Neue', 'sans-serif'],
+            tech: ['Space Grotesk', 'monospace'],
+            hand: ['Caveat', 'cursive'],
+          },
+          boxShadow: {
+            'scrapbook': '0 12px 35px -8px rgba(25, 23, 21, 0.18), 0 4px 12px -2px rgba(25, 23, 21, 0.08)',
+            'polaroid': '0 8px 24px -4px rgba(25, 23, 21, 0.16), 0 2px 6px rgba(25, 23, 21, 0.08)',
+            'sticker': '0 2px 0 rgba(25, 23, 21, 0.9)',
+            'sticker-hover': '0 4px 0 rgba(25, 23, 21, 0.9)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Global & Scrapbook Background CSS -->
+<style data-purpose="scrapbook-textures">
+    /* Outer gray workbench grid background */
+    body {
+      background-color: #8f9298;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+      background-size: 32px 32px;
+      min-height: 100vh;
+    }
+
+    /* Ruled paper texture repeating lines */
+    .ruled-paper {
+      background-color: #FAF9F5;
+      background-image: repeating-linear-gradient(
+        transparent,
+        transparent 31px,
+        #E4E2DC 31px,
+        #E4E2DC 32px
+      );
+      background-attachment: local;
+    }
+
+    /* Washi tape realistic sticker overlay */
+    .tape {
+      position: absolute;
+      background: rgba(230, 240, 255, 0.72);
+      backdrop-filter: blur(1.5px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      border-left: 2px dashed rgba(255, 255, 255, 0.5);
+      border-right: 2px dashed rgba(255, 255, 255, 0.5);
+      z-index: 20;
+    }
+    
+    .tape-tan {
+      background: rgba(245, 235, 210, 0.85);
+    }
+    
+    .tape-blue {
+      background: rgba(186, 215, 255, 0.75);
+    }
+
+    /* Pixel badge name style */
+    .pixel-text {
+      letter-spacing: 0.08em;
+      image-rendering: pixelated;
+      font-weight: 900;
+    }
+
+    /* Tab folder style clips */
+    .tab-notch-left {
+      clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 100%, 0% 100%);
+    }
+    .tab-notch-right {
+      clip-path: polygon(18px 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  </style>
+</head>
+<body class="text-ink antialiased selection:bg-brandYellow selection:text-ink py-2 px-1.5 sm:px-4 overflow-x-hidden">
+<!-- BEGIN: MainPortfolioCanvas -->
+<div class="w-full max-w-[1140px] mx-auto ruled-paper shadow-scrapbook border-2 border-stone-300 relative overflow-hidden transition-all duration-300 rounded-lg" data-purpose="binder-canvas">
+<!-- BEGIN: NavigationBar -->
+<header class="sticky top-0 z-50 bg-[#FAF9F5]/95 backdrop-blur-md border-b border-stone-300/80 px-3 py-2.5 transition-colors">
+<nav class="flex items-center justify-between gap-2" data-purpose="site-navigation">
+<!-- Left: Monogram and Compact Nav Pills -->
+<div class="flex items-center gap-1.5">
+<a aria-label="Home page" class="w-8 h-8 rounded-full bg-stone-100 border border-stone-300 flex items-center justify-center shadow-sm text-brandPink font-bold hover:scale-105 transition-transform flex-shrink-0" href="#hero">
+<span class="w-2.5 h-2.5 rounded-full bg-brandPink"></span>
+</a>
+<div class="flex items-center gap-1 text-[11px] uppercase tracking-wider font-semibold font-sans">
+<a class="bg-brandYellow text-ink px-2.5 py-1.5 rounded-md border border-stone-800/40 shadow-sticker flex items-center gap-1 font-bold active:translate-y-0.5" href="#hero">
+<span class="">★</span> HOME
+        </a>
+<a class="text-stone-700 hover:text-ink px-2 py-1.5 rounded-md hover:bg-stone-200/60 font-medium flex items-center gap-1" href="#about">
+<span class="">👤</span> ABOUT
+        </a>
+<a class="text-stone-700 hover:text-ink px-2 py-1.5 rounded-md hover:bg-stone-200/60 font-medium flex items-center gap-1" href="#projects">
+<span class="">☷</span> WORK
+        </a>
+</div>
+</div>
+<!-- Right: Quick Contact Button -->
+<div class="flex items-center gap-1.5 flex-shrink-0">
+<a class="bg-white hover:bg-stone-50 border border-stone-800 text-ink text-[11px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-full shadow-sm flex items-center gap-1 transition" href="#contact">
+ CONTACT
+      </a>
+</div>
+</nav>
+</header>
+<!-- END: NavigationBar -->
+<!-- BEGIN: HeroSection -->
+<section class="pt-6 pb-12 px-3 text-center relative overflow-hidden" data-purpose="hero-section" id="hero">
+<!-- Top Decorative Sticker Pills & Handwritten Intro -->
+<div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+
+
+</div>
+<!-- Handwritten Intro -->
+<div class="relative inline-block px-2 mb-2">
+<p class="font-hand text-stone-800 text-2xl font-bold -rotate-1 tracking-wide">
+      my name is
+    </p>
+<svg class="w-16 h-2 text-stone-700 mx-auto -mt-1" fill="none" viewBox="0 0 70 8">
+<path d="M2 5C20 2 50 2 68 5" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path d="M8 7C25 4 45 4 60 7" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<!-- Hero Main Name Box - Mobile Optimized Sizing -->
+<div class="inline-block relative my-3 max-w-[340px] w-full px-2">
+<!-- Orange Hand-Drawn Frame -->
+<div class="border-[3px] border-[#EE6C4D] rounded-lg px-6 py-4 bg-[#FAF9F5]/90 shadow-[4px_4px_0px_#EE6C4D] relative mx-auto">
+<h1 class="font-display text-6xl tracking-tight text-ink uppercase pixel-text leading-none select-none font-extrabold">
+        TAWAKKAL</h1>
+<!-- Corner doodles -->
+<span class="absolute -top-2.5 -left-2 text-xs font-bold text-[#EE6C4D] select-none">✕</span>
+<span class="absolute -bottom-2.5 -right-2 text-xs font-bold text-[#EE6C4D] select-none">✕</span>
+<span class="absolute -top-2.5 -right-2 text-[10px] text-[#EE6C4D]/80 select-none">+</span>
+<span class="absolute -bottom-2.5 -left-2 text-[10px] text-[#EE6C4D]/80 select-none">+</span>
+</div>
+<!-- Left Floating sticker -->
+<div class="absolute -left-1 -bottom-3 rotate-[-3deg] z-10">
+<span class="bg-[#F4CE4E] text-ink font-hand text-sm font-bold px-2.5 py-0.5 rounded border-2 border-stone-900 shadow-sticker flex items-center gap-1">
+        Full-Stack Dev <span class="">✏</span>
+</span>
+</div>
+<!-- Right Floating sticker -->
+<div class="absolute -right-1 -bottom-3 rotate-[3deg] z-10">
+<span class="bg-[#BCE6D6] text-stone-900 font-hand text-xs font-bold px-2.5 py-0.5 rounded border-2 border-stone-900 shadow-sticker">
+        Based in ID &amp; Remote 📍
+      </span>
+</div>
+</div>
+<!-- Availability status badge -->
+<div class="flex items-center justify-center gap-2 mt-7 mb-5">
+<span class="inline-flex items-center gap-2 bg-white/95 border border-stone-400 text-stone-900 px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brandBlue opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-brandBlue"></span>
+</span>
+      OPEN TO WORK &amp; COLLAB
+    </span>
+</div>
+<!-- Value Proposition Headline -->
+<div class="max-w-md mx-auto relative px-2">
+<h2 class="text-2xl font-extrabold text-ink tracking-tight leading-snug">I build web apps that make complex work simpler.</h2>
+</div>
+<!-- Action Buttons -->
+<div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-2.5 px-4">
+<a class="w-full sm:w-auto bg-ink hover:bg-stone-800 text-white font-sans text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-md border-2 border-ink shadow-sticker transition flex items-center justify-center gap-2 active:translate-y-0.5" href="#contact">
+<span class="">✉</span> CONTACT ME
+    </a>
+<a class="w-full sm:w-auto bg-brandYellow hover:bg-yellow-400 text-ink font-sans text-xs font-bold uppercase tracking-wider px-6 py-3 rounded-md border-2 border-stone-900 shadow-sticker transition flex items-center justify-center gap-2 active:translate-y-0.5" href="#projects">
+      VIEW PROJECTS <span class="">→</span>
+</a>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- Section Divider -->
+<div class="relative py-1 px-4 flex items-center justify-between opacity-70">
+<div class="w-full border-b border-stone-300"></div>
+<span class="font-hand text-stone-500 text-base font-semibold px-3 whitespace-nowrap">about me!</span>
+<div class="w-full border-b border-stone-300"></div>
+</div>
+<!-- BEGIN: AboutMeSection -->
+<section class="py-8 px-3 relative" data-purpose="about-section" id="about">
+<div class="space-y-6">
+<!-- Polaroid Portrait in center -->
+<div class="flex justify-center">
+<div class="relative bg-white p-3 pb-5 shadow-polaroid border border-stone-300 rotate-[-1deg] max-w-[260px] w-full" data-purpose="polaroid-portrait">
+<!-- Top Washi Tape -->
+<div class="tape tape-tan w-16 h-5 -top-2.5 left-1/2 -translate-x-1/2 rotate-[-1deg]"></div>
+<div class="tape tape-blue w-10 h-4 -top-2 -left-2 rotate-[-25deg]"></div>
+<!-- Portrait Image -->
+<div class="overflow-hidden bg-stone-100 aspect-[4/5] border border-stone-200 rounded">
+<img alt="Robin - Full-Stack Developer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvWtIbIoIV6m_mIFyveczPerqRQiC2NG8QOv0fgzWAhb4UKY5wQeUN5ECPZlSolDZ3t-_2Gd5Y-kJ2fjGhGVup99HEFwLDak7lQQ_cv0vpWWMRA8nq6QhIS6JGsiBGoNcWIbWFRR6J4bHlC-VMEM59h3Nh0Xub-crBMP4hKBOJIl5P5hX8woBbvhDU67P1mEHnI-M1--0y7XRBd9GbJ2yRO54CLdzwfXqc3PIzjLDbq3LK8P3pXv2lQtnq18C_JOqprFhvWPjOlx6hxg">
+</div>
+<!-- Caption -->
+<div class="text-center mt-2.5 space-y-0.5">
+<p class="font-hand text-stone-900 text-lg font-bold">Tawakkal Rabbani Muhammad/ Full-Stack Engineer
+          </p>
+<p class="font-mono text-[10px] text-stone-500 uppercase tracking-widest">INDONESIA &amp; Remote
+          </p>
+</div>
+</div>
+</div>
+<!-- Bio & Skills Content -->
+<div class="space-y-5 px-1">
+<div>
+<div class="inline-block mb-2">
+<span class="font-sans font-bold text-[10px] uppercase tracking-widest px-2.5 py-0.5 border-2 border-stone-800 bg-white rounded shadow-sm text-ink">
+            WHAT I DO
+          </span>
+</div>
+<h3 class="font-sans text-xl font-extrabold text-ink tracking-tight leading-snug"></h3><h3 data-pm-slice="1 1 []" class="">Building practical digital solutions with curiosity, care &amp; purpose.</h3>
+</div>
+<div class="space-y-2.5 font-sans text-stone-700 text-sm leading-relaxed">
+<p class=""></p><p data-pm-slice="1 1 []" class="">I'm an Informatics graduate from Institut Teknologi Sumatera with a strong interest in web development. I enjoy building web applications, working across frontend and backend, and exploring technologies that help turn ideas into practical solutions.</p><p class=""></p>
+<p class="text-stone-600 text-xs leading-relaxed"></p><p data-pm-slice="1 1 []" class="">I've worked on projects ranging from developing backend systems to building and deploying a full-stack project management application. I value clean code, continuous learning, and creating solutions that make everyday work simpler.</p><p class=""></p>
+</div>
+<!-- Tech Stack Groups -->
+<div class="space-y-4 pt-3 border-t border-stone-300/80" id="stack">
+<div class="flex items-center gap-1.5">
+<span class="font-mono text-[11px] font-bold uppercase tracking-wider text-stone-600">Core Tech Stack &amp; Tooling</span>
+</div>
+<!-- Frontend -->
+<div class="space-y-1.5">
+<span class="font-mono text-[10px] font-bold uppercase tracking-wider text-stone-500 block">Frontend</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-brandYellow text-ink px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-bold text-[11px] uppercase rotate-[-1deg]">HTML</span>
+<span class="bg-white text-ink px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-semibold text-[11px] uppercase rotate-[1deg]">CSS</span>
+<span class="bg-[#A9DDC9] text-emerald-950 px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-bold text-[11px] uppercase rotate-[-1.5deg]">JAVASCRIPT</span>
+
+
+</div>
+</div>
+<!-- Backend -->
+<div class="space-y-1.5">
+<span class="font-mono text-[10px] font-bold uppercase tracking-wider text-stone-500 block">Backend &amp; APIs</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-brandPink text-white px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-bold text-[11px] uppercase rotate-[-1deg]">Node.js / Express</span>
+<span class="bg-white text-ink px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-semibold text-[11px] uppercase rotate-[1deg]">Python&nbsp;</span>
+
+
+</div>
+</div>
+<!-- Database -->
+<div class="space-y-1.5">
+<span class="font-mono text-[10px] font-bold uppercase tracking-wider text-stone-500 block">Database &amp; Cloud</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-brandBlue text-white px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-bold text-[11px] uppercase rotate-[1deg]">PostgreSQL</span>
+
+<span class="bg-white text-ink px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-semibold text-[11px] uppercase rotate-[1.5deg]">SQL</span>
+<span class="bg-[#F6DE98] text-amber-900 px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-bold text-[11px] uppercase rotate-[-1deg]">MONGODB</span>
+</div>
+</div>
+<!-- Tools -->
+<div class="space-y-1.5">
+<span class="font-mono text-[10px] font-bold uppercase tracking-wider text-stone-500 block">Tools &amp; Workflow</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-stone-100 text-stone-900 px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-semibold text-[11px] uppercase rotate-[-1deg]">Git &amp; GitHub</span>
+
+<span class="bg-[#B9E4D3] text-emerald-950 px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-bold text-[11px] uppercase rotate-[-1.5deg]">GOOGLE STITCH</span>
+<span class="bg-white text-ink px-2.5 py-1 rounded-md border-2 border-stone-900 shadow-sticker font-sans font-semibold text-[11px] uppercase rotate-[0.5deg]">Figma</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: AboutMeSection -->
+<!-- BEGIN: FeaturedProjectsSection -->
+<section class="pt-4 pb-12 px-2.5" data-purpose="featured-projects" id="projects">
+<!-- Header Badge -->
+<div class="mb-4 flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="bg-ink text-white font-sans text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded">
+        SELECTED WORK
+      </span>
+<h3 class="font-display text-xl uppercase tracking-wider text-ink">
+        Featured Projects
+      </h3>
+</div>
+<p class="font-hand text-stone-600 text-sm font-semibold -rotate-1">
+      shipped 🚀
+    </p>
+</div>
+<!-- PROJECT CARD 01: Tandem -->
+<article class="mb-8 relative group" data-purpose="project-card-01">
+<!-- Tab header -->
+<div class="flex items-end">
+<div class="bg-brandBlue text-white font-sans text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-t-lg border-t-2 border-x-2 border-stone-900 shadow-sm flex items-center gap-1 z-10">
+<span class="">✦</span> PROJECT 01
+      </div>
+<div class="bg-stone-800 text-stone-300 font-sans text-[10px] font-medium uppercase tracking-wider px-3 py-1 rounded-t-lg border-t border-x border-stone-700 ml-1 opacity-75">
+<span class="">✦</span><strong style="letter-spacing: 0.05em;">MANAGEMENT WEB APPLICATION</strong></div>
+</div>
+<!-- Main Dark Panel Container -->
+<div class="bg-ink text-white rounded-b-xl rounded-tr-xl border-2 border-stone-900 shadow-scrapbook overflow-hidden p-4">
+<div class="space-y-4">
+<!-- Date Metadata -->
+<div class="flex items-center gap-1.5 text-stone-400 text-[11px] font-mono tracking-wider">
+<span class="w-2 h-2 rounded-full bg-brandOrange"></span>
+<span class="">JUN - JUL 2026</span>
+</div>
+<h4 class="font-sans text-2xl font-extrabold tracking-tight text-white">
+          Rancang Reka Ruang</h4>
+<p class="text-stone-300 text-sm leading-relaxed"></p><p data-pm-slice="1 1 []" class="">From project tracking to team performance, all in one place. A web-based project management application built for an architecture studio to manage projects, clients, finances, timelines, and team performance.</p><p></p>
+<!-- Role Contribution -->
+<div class="bg-stone-900/90 border border-stone-700/80 p-3 rounded-lg text-xs text-stone-300 space-y-1">
+<p class="font-semibold text-brandYellow">Role &amp; Contribution:</p>
+<p class="text-[11px] leading-relaxed"></p><p data-pm-slice="1 1 []" class="">Designed and developed 10 management modules from scratch to production. Automated project scheduling, deadlines, progress tracking, and team KPI calculations. Deployed and maintained the application on a VPS, including 5 database schema migrations without data loss. The system is actively used by 12 users to manage 46 projects.</p><p></p>
+</div>
+<!-- Stack Badges -->
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-stone-800 text-stone-200 border border-stone-700 text-[10px] font-mono px-2 py-0.5 rounded">HTML &amp; CSS</span>
+<span class="bg-stone-800 text-stone-200 border border-stone-700 text-[10px] font-mono px-2 py-0.5 rounded">JavaScript</span>
+<span class="bg-stone-800 text-stone-200 border border-stone-700 text-[10px] font-mono px-2 py-0.5 rounded">Python</span>
+<span class="bg-stone-800 text-stone-200 border border-stone-700 text-[10px] font-mono px-2 py-0.5 rounded">PostgreSQL</span>
+</div>
+<!-- Screenshot Preview -->
+<div class="relative pt-2">
+<div class="relative bg-stone-900 p-2 rounded-xl border border-stone-700 shadow-2xl rotate-[0.5deg]">
+<div class="tape tape-blue w-12 h-4 -top-2 -left-2 rotate-[-25deg]"></div>
+<div class="tape tape-tan w-12 h-4 -top-2 -right-2 rotate-[25deg]"></div>
+<div class="bg-stone-950 rounded-lg overflow-hidden border border-stone-800">
+<div class="bg-stone-900 px-3 py-1.5 flex items-center justify-between border-b border-stone-800 text-[10px] text-stone-400 font-mono">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-rose-500"></span>
+<span class="w-2 h-2 rounded-full bg-amber-500"></span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+
+<span class="text-emerald-400">● LIVE</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden bg-stone-900">
+<img alt="Tandem Application screenshot" class="w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSdcssHjBS_1W5bSJolleT4mY4T1r6x-9q2w8FfgWkloCEtw7fgD_g4OKh8yEc1xskvgWKmrk1dM1fEx_Mwl5kXmWpij2kBW2IrDlnKV331k0OZJCCrWhgldPuwDqopW4QqUtjGP6MWqRbqwMR4TKdO0JJZ2YdMpeqI0GvpXOeQQaIQuygFj8L1fr2LdFq7JPDTHWD462-AryF37GdEnAKaoE3QLVkRxYgXX3M2_V6dC6aXyyVZgmdy0dVmwW0jic_">
+</div>
+</div>
+</div>
+</div>
+<!-- Links -->
+<div class="pt-2 flex items-center justify-between text-xs">
+
+
+</div>
+</div>
+</div>
+</article>
+<!-- PROJECT CARD 02: Forge -->
+<article class="mb-8 relative group" data-purpose="project-card-02">
+<div class="flex items-end">
+<div class="bg-brandYellow text-ink font-sans text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-t-lg border-t-2 border-x-2 border-stone-900 shadow-sm flex items-center gap-1 z-10">
+<span class="">✦</span> PROJECT 02
+      </div>
+<div class="bg-amber-200/60 text-stone-800 font-sans text-[10px] font-semibold uppercase tracking-wider px-3 py-1 rounded-t-lg border-t border-x border-stone-400 ml-1">
+<span class="">✦ </span>Mindset Profile System
+      </div>
+</div>
+<!-- Main Warm Yellow Container -->
+<div class="bg-brandYellow text-ink rounded-b-xl rounded-tr-xl border-2 border-stone-900 shadow-scrapbook overflow-hidden p-4">
+<div class="space-y-4">
+<div class="flex items-center gap-1.5 text-stone-900 text-[11px] font-mono tracking-wider">
+<span class="w-2 h-2 rounded-full bg-ink"></span>
+<span class="">JUN - JUL 2026</span>
+</div>
+<h4 class="font-sans text-2xl font-extrabold tracking-tight text-ink"></h4><h4 data-pm-slice="1 1 []" class=""></h4><h4 class="font-sans text-2xl font-extrabold tracking-tight text-ink" style="--tw-border-spacing-x: 0; --tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ; margin: 16px 0px 0px; --tw-text-opacity: 1; color: rgb(25, 23, 21); --tw-space-y-reverse: 0; user-select: text !important; outline: none !important; box-shadow: none !important;">BBGTK Sumatera Utara</h4>
+<p class="text-stone-900 text-sm leading-relaxed font-medium"></p><p data-pm-slice="1 1 []" class="">A web-based system designed to support the mapping of employee mindset profiles, helping the organization collect and manage employee assessment data.</p><p></p>
+<div class="bg-amber-300/80 border-2 border-stone-900/40 p-3 rounded-lg text-xs text-stone-950 space-y-1">
+<p class="font-bold text-stone-900">Role &amp; Contribution:</p>
+<p class="text-[11px] leading-relaxed"></p><p data-pm-slice="1 1 []" class="">Developed the backend system using Node.js, Express.js, and MongoDB. Contributed to the implementation and completion of the web application within a 33-day internship program.</p><p></p>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="bg-ink text-brandYellow text-[10px] font-mono font-bold px-2 py-0.5 rounded">Node.js</span>
+<span class="bg-ink text-white text-[10px] font-mono px-2 py-0.5 rounded">Express.js</span>
+<span class="bg-ink text-white text-[10px] font-mono px-2 py-0.5 rounded">MongoDB</span>
+
+</div>
+<!-- Screenshot Preview -->
+<div class="relative pt-2">
+<div class="relative bg-white p-2 rounded-xl border-2 border-stone-900 shadow-2xl rotate-[-0.5deg]">
+<div class="tape tape-tan w-12 h-4 -top-2 -left-2 rotate-[-25deg]"></div>
+<div class="tape tape-blue w-12 h-4 -top-2 -right-2 rotate-[25deg]"></div>
+<div class="bg-stone-900 rounded-lg overflow-hidden border border-stone-800">
+<div class="bg-stone-800 px-3 py-1.5 flex items-center justify-between border-b border-stone-700 text-[10px] text-stone-300 font-mono">
+<span class="text-amber-400 font-bold">▶ forge-setup</span>
+<span class="text-stone-400">docker ready</span>
+</div>
+<div class="relative aspect-[16/10] overflow-hidden bg-stone-950">
+<img alt="Forge Dev Environment dashboard" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiY_IfeNn4qn5ONL9OMG_gqz9uC85FgNF7jZClrHIITT08vSAugZjEvBXICfQvYCVfn2i5HsZLIDE30T0cArfxAbfmpO9WoL84Vd2dG8-OU5SZcxurKY2rSa4ih9bCzpjc0FwKl4D_-VEPQjplSwFncCg9Vpf0v1ZQG88CM9MmtmRhBmZbHZRuk5s7HjTkfbFFutLJ91hGbFy3Eh2CakBni6j6er5Au5hBithaUx--FfrGLY0-9--NKHmqqjCTpZfD">
+</div>
+</div>
+</div>
+</div>
+<!-- Links -->
+<div class="pt-2 flex items-center justify-between text-xs">
+
+<a class="text-stone-800 hover:text-black font-bold uppercase tracking-wider flex items-center gap-1" href="https://github.com" rel="noopener noreferrer" target="_blank">
+            GITHUB REPO <span class="">↗</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<!-- PROJECT CARD 03: PulseFlow -->
+<article class="mb-4 relative group" data-purpose="project-card-03">
+
+<!-- Main Deep Dark Ink Container -->
+
+</article>
+</section>
+<!-- END: FeaturedProjectsSection -->
+<!-- BEGIN: ContactSection -->
+<section class="py-10 px-3 border-t-2 border-stone-300 bg-[#F4F3EE]/90 relative" data-purpose="contact-section" id="contact">
+<div class="max-w-md mx-auto text-center space-y-4">
+<span class="bg-brandOrange text-white text-[11px] font-bold uppercase tracking-widest px-3.5 py-1 rounded-full border border-stone-900 shadow-sm inline-block -rotate-1">
+      LET'S BUILD TOGETHER
+    </span>
+<h3 class="text-2xl font-extrabold text-ink tracking-tight leading-snug px-1">
+      Have an interesting project or good problem to solve?
+    </h3>
+<p class="font-hand text-stone-700 text-lg font-semibold px-2">
+      "Always open to full-time engineering roles, high-impact freelance work, and casual coffee chats."
+    </p>
+<div class="pt-2">
+<a class="w-full bg-ink hover:bg-stone-800 text-white font-sans text-xs font-bold uppercase tracking-wider px-4 py-3.5 rounded-lg border-2 border-ink shadow-sticker transition active:translate-y-0.5 flex items-center justify-center gap-2" href="mailto:robin.dev@example.com?subject=Hello%20Robin!">
+<span class="">✉</span>TAKAMUHAMAD31@GMAIL.COM</a>
+</div>
+<div class="pt-2 flex items-center justify-center gap-4 text-[11px] uppercase tracking-wider font-bold text-stone-700">
+<a class="hover:text-brandBlue hover:underline flex items-center gap-0.5" href="https://linkedin.com" rel="noopener noreferrer" target="_blank">
+        LinkedIn ↗
+      </a>
+<span class="text-stone-300">•</span>
+<a class="hover:text-ink hover:underline flex items-center gap-0.5" href="https://github.com" rel="noopener noreferrer" target="_blank">
+        GitHub ↗
+      </a>
+<span class="text-stone-300">•</span>
+<a class="hover:text-brandOrange hover:underline flex items-center gap-0.5" href="#">
+        Resume ↗
+      </a>
+</div>
+</div>
+</section>
+<!-- END: ContactSection -->
+<!-- BEGIN: Footer -->
+<footer class="border-t border-stone-300 py-4 px-4 flex flex-col items-center justify-between gap-2 text-[11px] text-stone-600 font-sans" data-purpose="site-footer">
+<div class="flex items-center gap-1.5 text-center">
+<span class="font-display text-base tracking-wider text-ink font-bold">TAWAKKAL</span>
+<span class="">•</span>
+<span class="">© 2026. Made on ruled paper.</span>
+</div>
+<a class="text-stone-700 hover:text-ink font-semibold flex items-center gap-1 hover:underline" href="#hero">
+    Back to top ↑
+  </a>
+</footer>
+<!-- END: Footer -->
+</div>
+<!-- END: MainPortfolioCanvas -->
+<script data-purpose="navigation-interactivity">
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#' || targetId === '') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+</body></html>
